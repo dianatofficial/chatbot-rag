@@ -2,11 +2,19 @@ import streamlit as st
 from openai import OpenAI
 
 # Show title and description.
-st.title("💬 Chatbot")
+st.title("💬 Chatbot | چت‌بات")
+st.caption("توسعه‌دهنده (dianatofficial.ir) | © dianatofficial")
 st.write(
+    "این یک چت‌بات ساده است که از مدل GPT-3.5 اوپن‌ای‌آی برای تولید پاسخ‌ها استفاده می‌کند. "
+    "برای استفاده از این برنامه، باید یک کلید API اوپن‌ای‌آی وارد کنید که می‌توانید آن را "
+    "[اینجا](https://platform.openai.com/account/api-keys) دریافت کنید. "
+    "همچنین می‌توانید روش ساخت این برنامه را مرحله‌به‌مرحله در "
+    "[آموزش استریم‌لیت](https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps) ببینید.\n\n"
     "This is a simple chatbot that uses OpenAI's GPT-3.5 model to generate responses. "
-    "To use this app, you need to provide an OpenAI API key, which you can get [here](https://platform.openai.com/account/api-keys). "
-    "You can also learn how to build this app step by step by [following our tutorial](https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps)."
+    "To use this app, you need to provide an OpenAI API key, which you can get "
+    "[here](https://platform.openai.com/account/api-keys). "
+    "You can also learn how to build this app step by step by "
+    "[following the Streamlit tutorial](https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps)."
 )
 
 # Ask user for their OpenAI API key via `st.text_input`.
@@ -49,7 +57,7 @@ else:
             stream=True,
         )
 
-        # Stream the response to the chat using `st.write_stream`, then store it in 
+        # Stream the response to the chat using `st.write_stream`, then store it in
         # session state.
         with st.chat_message("assistant"):
             response = st.write_stream(stream)
